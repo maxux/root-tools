@@ -59,8 +59,8 @@ int main(void) {
     printf("[+] preparing system\n");
     pre_suspend();
 
-    printf("[+] entering suspend-to-ram\n");
     printf("[+] ======================================\n");
+    printf("[+] entering suspend-to-ram\n");
     suspend();
     printf("[+] ======================================\n");
 

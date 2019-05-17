@@ -1,4 +1,4 @@
-all: suspend vlock
+all: clean suspend vlock
 
 suspend:
 	gcc suspend-to-ram.c -o suspend-to-ram -O2 -W -Wall
