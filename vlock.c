@@ -12,7 +12,7 @@ int main(void) {
     if(setuid(0))
         diep("setuid");
 
-    if(system("/usr/local/bin/vlock -ans") < 0)
+    if(system("/usr/sbin/vlock-main all new nosysrq framebuffer") < 0)
         diep("system");
 
     return 0;
