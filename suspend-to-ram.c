@@ -33,12 +33,10 @@ int set(char *filename, char *str) {
 // hooks
 //
 void pre_suspend() {
-    printf("[+] unloading radeon\n");
-    if(system("/sbin/rmmod radeon") < 0)
-        diep("system");
-
     printf("[+] setting power management to sync-mode\n");
     set("/sys/power/pm_async", "0");
+
+    system("/usr/bin/nvidia-sleep.sh suspend");
 }
 
 void suspend() {
@@ -46,9 +44,7 @@ void suspend() {
 }
 
 void post_suspend() {
-    printf("[+] loading radeon\n");
-    if(system("/sbin/modprobe radeon") < 0)
-        diep("system");
+    system("/usr/bin/nvidia-sleep.sh resume");
 }
 
 
